@@ -31,7 +31,7 @@ exports.up = function(knex) {
             .notNullable()
             .references('animals.id');
 
-            tbl.primary(['zoo_id, animal_id']);
+            tbl.primary(['zoo_id', 'animal_id']);
 
       })
   )
