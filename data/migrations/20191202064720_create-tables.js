@@ -20,6 +20,20 @@ exports.up = function(knex) {
           .references('id') // Or .references('species.id')
           .inTable('species');
       })
+      .createTable('zoo_animals', tbl => {
+        tbl.integer('zoo_id')
+          .unsigned()
+          .notNullable()
+          .references('zoo.id');
+
+          tbl.integer('animal_id')
+            .unsigned()
+            .notNullable()
+            .references('animals.id');
+
+            tbl.primary(['zoo_id, animal_id']);
+
+      })
   )
 };
 
